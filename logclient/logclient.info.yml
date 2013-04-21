@@ -1,0 +1,6 @@
+name: Log Client
+description: 'Exposes a plugin type to allow for capturing watchdog messages and logging them outside of Drupal.'
+package: Logging
+version: 1.x
+core: 8.x
+configure: admin/reports/dblog/settings
