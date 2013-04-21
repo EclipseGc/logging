@@ -1,0 +1,6 @@
+logclient.settings:
+  pattern: '/admin/reports/dblog/settings'
+  defaults:
+    _form: '\Drupal\logclient\LogclientSettings'
+  requirements:
+    _permission: 'administer log client'

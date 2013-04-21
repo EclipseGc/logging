@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * Implements hook_watchdog().
+ */
+function logclient_watchdog($log_entry) {
+  $config = config('logclient');
+  $plugin = $config->get('connection');
+  if ($plugin) {
+    $connection = \Drupal::service('plugin.manager.logclient.connection')->createInstance($plugin);
+    $connection->log('watchdog', $log_entry);
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function logclient_permission() {
+  return array(
+    'administer log client' => array(
+      'title' => t('Administer log client settings'),
+      'description' => t('Set the connection and connection details for the log client.'),
+    ),
+  );
+}

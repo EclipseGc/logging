@@ -1,0 +1,4 @@
+services:
+  plugin.manager.logclient.connection:
+    class: Drupal\logclient\Plugin\ConnectionManager
+    arguments: ['%container.namespaces%']
