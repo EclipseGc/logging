@@ -7,7 +7,7 @@
 namespace Drupal\logclient;
 
 use Drupal\Component\Plugin\PluginManagerBase;
-use Drupal\Component\Plugin\Discovery\DerivativeDiscovery;
+use Drupal\Component\Plugin\Discovery\DerivativeDiscoveryDecorator;
 use Drupal\Component\Plugin\Factory\DefaultFactory;
 use Drupal\Core\Plugin\Discovery\AnnotatedClassDiscovery;
 use Drupal\Core\Plugin\Discovery\AlterDecorator;
@@ -27,7 +27,7 @@ class ConnectionManager extends PluginManagerBase {
       'Drupal\logclient\Annotation' => $namespaces['Drupal\logclient']
     );
     $this->discovery = new AnnotatedClassDiscovery('Logclient', 'Connection', $namespaces, $annotation_namespaces, 'Drupal\logclient\Annotation\Connection');
-    $this->discovery = new DerivativeDiscovery($this->discovery);
+    $this->discovery = new DerivativeDiscoveryDecorator($this->discovery);
     $this->discovery = new AlterDecorator($this->discovery);
     $this->factory = new DefaultFactory($this);
   }
