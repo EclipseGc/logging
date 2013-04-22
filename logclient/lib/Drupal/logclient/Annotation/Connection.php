@@ -12,6 +12,8 @@ use Drupal\Component\Annotation\Plugin;
  *
  * Class Connection
  * @package Drupal\logclient\Annotation
+ *
+ * @Annotation
  */
 class Connection extends Plugin {
 
