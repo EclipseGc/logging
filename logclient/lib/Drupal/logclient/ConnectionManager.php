@@ -28,7 +28,7 @@ class ConnectionManager extends PluginManagerBase {
     );
     $this->discovery = new AnnotatedClassDiscovery('Logclient', 'Connection', $namespaces, $annotation_namespaces, 'Drupal\logclient\Annotation\Connection');
     $this->discovery = new DerivativeDiscoveryDecorator($this->discovery);
-    $this->discovery = new AlterDecorator($this->discovery);
+    $this->discovery = new AlterDecorator($this->discovery, 'logclient_connection');
     $this->factory = new DefaultFactory($this);
   }
 }
