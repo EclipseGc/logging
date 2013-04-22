@@ -13,7 +13,7 @@ use Drupal\logclient\Annotation\Connection;
 use Guzzle\Http\Client;
 
 /**
- * @Connectiono(
+ * @Connection(
  *   id = "drupal_connection",
  *   label = @Translation("Drupal Server")
  * )
