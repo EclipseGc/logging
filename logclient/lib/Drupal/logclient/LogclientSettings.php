@@ -12,6 +12,13 @@ class LogclientSettings implements FormInterface {
   /**
    * {@inheritdoc}
    */
+  public function getFormID() {
+    return 'logclient_settings_form';
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function buildForm(array $form, array &$form_state) {
     $plugins = array();
     foreach (\Drupal::service('plugin.manager.logclient.connection')->getDefinitions() as $plugin_id => $definition) {
