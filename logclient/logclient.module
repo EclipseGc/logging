@@ -23,3 +23,20 @@ function logclient_permission() {
     ),
   );
 }
+
+/**
+ * Implements hook_menu().
+ */
+function logclient_menu() {
+  $items = array();
+  $items['admin/reports/dblog/view'] = array(
+    'title' => 'View',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+  $items['admin/reports/dblog/settings'] = array(
+    'title' => 'Settings',
+    'route_name' => 'logclient.settings',
+    'type' => MENU_LOCAL_TASK,
+  );
+  return $items;
+}

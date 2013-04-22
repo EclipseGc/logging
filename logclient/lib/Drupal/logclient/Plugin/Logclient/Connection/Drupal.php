@@ -7,9 +7,16 @@ namespace Drupal\logclient\Plugin\Logclient\Connection;
 
 use Drupal\Component\Form\FormInterface;
 use Drupal\Component\Plugin\PluginBase;
-use Drupal\logclient\Plugin\ConnectionInterface;
+use Drupal\Core\Annotation\Translation;
+use Drupal\logclient\ConnectionInterface;
+use Drupal\logclient\Annotation\Connection;
 use Guzzle\Http\Client;
 
+/**
+ * @Connection(
+ *   label = @Translation("Drupal Server")
+ * )
+ */
 class Drupal extends PluginBase implements FormInterface, ConnectionInterface {
 
   /**

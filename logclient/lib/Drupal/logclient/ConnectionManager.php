@@ -23,7 +23,10 @@ use Drupal\Core\Plugin\Discovery\CacheDecorator;
  */
 class ConnectionManager extends PluginManagerBase {
   public function __construct($namespaces) {
-    $this->discovery = new AnnotatedClassDiscovery('Logclient', 'Connection', $namespaces);
+    $annotation_namespaces = array(
+      'Drupal\logclient\Annotation' => $namespaces['Drupal\logclient']
+    );
+    $this->discovery = new AnnotatedClassDiscovery('Logclient', 'Connection', $namespaces, $annotation_namespaces, 'Drupal\logclient\Annotation\Connection');
     $this->discovery = new DerivativeDiscovery($this->discovery);
     $this->discovery = new AlterDecorator($this->discovery);
     $this->factory = new DefaultFactory($this);
